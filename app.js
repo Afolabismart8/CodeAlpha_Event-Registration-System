@@ -7,7 +7,15 @@ app.use(express.json());
 const connectDB = require("./src/config/database");
 connectDB();
 
-console.log("DB IMPORT:", connectDB);
+const registrationRoutes = require("./src/routes/registrationRoute");
+const authRoutes = require("./src/routes/authRoute");
+const eventRoutes = require("./src/routes/eventRoute");
+
+
+
+app.use("/api", registrationRoutes);
+app.use("/api", authRoutes);
+app.use("/api", eventRoutes);
 
 app.get("/", (req, res) => {
     res.status(200).json({
