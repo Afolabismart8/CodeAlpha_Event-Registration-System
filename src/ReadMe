@@ -1,0 +1,219 @@
+# Event Registration System API
+
+A backend API for managing events and user registrations, built with Node.js, Express.js, MongoDB, and JWT authentication.
+
+## 🚀 Features
+
+* User Registration & Login
+* JWT Authentication
+* Role-Based Access Control (Admin/User)
+* Event Creation & Management
+* Event Registration System
+* Cancel Event Registration
+* View User Registrations
+* Input Validation with Joi
+* Global Error Handling
+* MongoDB Database Integration
+
+---
+
+# 🛠️ Tech Stack
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT Authentication
+* Joi Validation
+* bcryptjs
+
+---
+
+# 📁 Project Structure
+
+```bash
+src/
+  controllers/
+  middleware/
+  models/
+  routes/
+  validators/
+  config/
+```
+
+---
+
+# ⚙️ Installation
+
+## 1. Clone Repository
+
+```bash
+git clone <your-repo-url>
+```
+
+## 2. Navigate Into Project
+
+```bash
+cd event_registration_system
+```
+
+## 3. Install Dependencies
+
+```bash
+npm install
+```
+
+## 4. Create Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+PORT=5000
+MONGO_URL=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
+
+---
+
+# ▶️ Running the Server
+
+```bash
+npm run dev
+```
+
+OR
+
+```bash
+node app.js
+```
+
+Server runs on:
+
+```bash
+http://localhost:5000
+```
+
+---
+
+# 🔐 Authentication
+
+Authentication is handled using JWT tokens.
+
+Include token in request headers:
+
+```http
+Authorization: Bearer your_token_here
+```
+
+---
+
+# 📌 API Endpoints
+
+## 👤 Auth Routes
+
+### Register User
+
+```http
+POST /api/auth/register
+```
+
+### Login User
+
+```http
+POST /api/auth/login
+```
+
+---
+
+## 📅 Event Routes
+
+### Create Event (Admin Only)
+
+```http
+POST /api/events
+```
+
+### Get All Events
+
+```http
+GET /api/events
+```
+
+### Get Single Event
+
+```http
+GET /api/events/:id
+```
+
+---
+
+## 📝 Registration Routes
+
+### Register For Event
+
+```http
+POST /api/registrations/:id/register
+```
+
+### Cancel Registration
+
+```http
+DELETE /api/registrations/:id/cancel
+```
+
+### View My Registrations
+
+```http
+GET /api/registrations/me
+```
+
+---
+
+# 🛡️ Role-Based Access Control
+
+This project supports two user roles:
+
+* user
+* admin
+
+Admins can:
+
+* Create events
+* Manage platform resources
+
+Users can:
+
+* View events
+* Register for events
+* Cancel registrations
+
+---
+
+# ✅ Validation & Error Handling
+
+The API uses Joi validation middleware to validate incoming requests and centralized error handling for consistent API responses.
+
+---
+
+# ☁️ Deployment
+
+Recommended deployment platforms:
+
+* Render
+* Railway
+
+---
+
+# 📚 Future Improvements
+
+* Swagger API Documentation
+* Email Notifications
+* Event Capacity Limits
+* Pagination & Filtering
+* Unit & Integration Testing
+
+---
+
+# 👨‍💻 Author
+
+Built by Yusuf Afolabi as part of a backend engineering learning journey focused on building scalable and production-ready APIs.
