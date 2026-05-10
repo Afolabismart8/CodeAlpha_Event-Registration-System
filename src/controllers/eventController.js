@@ -1,8 +1,14 @@
 const Event = require("../models/eventModel");
+const { createEventSchema } = require("../validators/eventValidator");
 
 const createEvent = async (req, res) => {
   try {
     const { title, description, date, location } = req.body;
+    const { error } = createEventSchema.validate({ title, description, date, location });
+
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    }
 
     const event = await Event.create({
       title,
